@@ -1,15 +1,13 @@
 ---
-title: "RAG with Open Source Vector Databases"
-description: "Implementing Retrieval-Augmented Generation using Quarkus, LangChain4j, and open source vector databases."
+title: "Document Q&A with Retrieval-Augmented Generation (RAG)"
+description: "A document question-answering system where an AI can answer user queries based on a private document corpus."
 complexity: "Intermediate"
 use_case: "Knowledge Management"
 technologies: ["Quarkus", "LangChain4j", "pgvector", "Redis"]
 layout: architecture
 ---
 
-# RAG with Open Source Vector Databases
-
-Implement Retrieval-Augmented Generation (RAG) using Quarkus, LangChain4j, and open source vector databases to enhance AI responses with your business data.
+This follows the Retrieval-Augmented Generation (RAG) pattern. The application uses a LLM in conjunction with a vector database to provide relevant context from documents before generating answers. This design ensures accurate, context-aware responses by grounding the LLM in enterprise data instead of relying purely on the model’s own knowledge.
 
 ## Architecture Overview
 
@@ -21,20 +19,14 @@ This pattern combines:
 
 ## Key Components
 
-### 1. Document Ingestion Pipeline
-- PDF/text document processing
-- Chunking and embedding generation
-- Vector storage with metadata
+* Quarkus service: Provides REST endpoints (or a UI) for users to ask questions. It orchestrates the RAG workflow.
+* LangChain4j integration: Handles the workflow of embedding queries, searching the vector store, and invoking the LLM. It abstracts the low-level calls to the model.
+* Vector database (pgvector/Postgres): Stores document embeddings for similarity search. When a question comes in, the service computes its embedding and finds relevant document chunks via pgvector.
+* Local LLM via Ollama: The language model (e.g. Llama 2 or other) runs locally in an Ollama container. The Quarkus app sends the user’s question plus retrieved context to the LLM to generate an answer.
+* No external API is needed, and data stays on-premise.
+Supporting components: Quarkus Dev Services can spin up Postgres with pgvector. Optional health checks, monitoring (Micrometer/Prometheus) to observe AI service performance.
 
-### 2. Query Processing
-- User query embedding
-- Similarity search in vector database
-- Context assembly for LLM
-
-### 3. Response Generation
-- LLM prompt with retrieved context
-- Response streaming
-- Source attribution
+<img src="/assets/images/architectures/rag-with-vector/overview.png" alt="Architecture Overview" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
 
 ## Implementation Guide
 
