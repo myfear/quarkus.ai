@@ -1,0 +1,135 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: "Quarkus.ai"
+logo: "/assets/images/quarkusai.png"
+
+email: your-email@example.com
+description: "AI-Native Java for the Enterprise. Build smarter applications with the performance, portability, and standards your business already trusts."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://quarkus.ai"
+twitter_username: quarkusio
+github_username:  quarkusio
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Sass configuration to suppress deprecation warnings
+sass:
+  style: compressed
+  sass_dir: _sass
+  load_paths:
+    - _sass
+  quiet_deps: true
+  verbose: false
+
+# Collections for organized content
+collections:
+  architectures:
+    output: true
+    permalink: /architectures/:name/
+  tutorials:
+    output: true
+    permalink: /tutorials/:name/
+  success_stories:
+    output: true
+    permalink: /success-stories/:name/
+
+# Navigation structure
+nav_links:
+  - title: "Why Java for AI?"
+    url: "/why-java-for-ai/"
+  - title: "Architectures"
+    url: "/architectures/"
+  - title: "Modernization Path"
+    url: "/modernization-path/"
+  - title: "Get Started"
+    url: "/get-started/"
+  - title: "Success Stories"
+    url: "/success-stories/"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Markus Eisele"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "architectures"
+    values:
+      layout: "architecture"
+  - scope:
+      path: ""
+      type: "tutorials"
+    values:
+      layout: "tutorial"
+  - scope:
+      path: ""
+      type: "success_stories"
+    values:
+      layout: "success_story"
+
+# SEO and social
+twitter:
+  username: "quarkusio"
+  card: summary_large_image
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

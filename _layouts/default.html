@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  
+  {% if jekyll.environment == 'production' and site.google_analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
+  
+  {% seo %}
+  {% feed_meta %}
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a class="site-title" href="{{ "/" | relative_url }}">
+          {% if site.logo %}
+            <img src="{{ site.logo | relative_url }}" alt="{{ site.title | escape }}" />
+          {% else %}
+            {{ site.title | escape }}
+          {% endif %}
+        </a>
+        
+        <nav class="site-nav">
+          <ul>
+            {% for link in site.nav_links %}
+              {% assign is_active = false %}
+              {% if page.url == link.url or page.url contains link.url %}
+                {% assign is_active = true %}
+              {% endif %}
+              <li><a href="{{ link.url | relative_url }}" {% if is_active %}class="active"{% endif %}>{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content" aria-label="Content">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+</body>
+
+</html> 

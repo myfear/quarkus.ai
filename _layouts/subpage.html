@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<section class="subpage-hero">
+  <div class="container">
+    <div class="subpage-hero-content">
+      <h1>{{ page.title }}</h1>
+      {% if page.description %}
+        <p class="subpage-hero-subtitle">{{ page.description }}</p>
+      {% endif %}
+      
+      {% if page.hero_links %}
+        <div class="subpage-hero-links">
+          {% for link in page.hero_links %}
+            <a href="{{ link.url | relative_url }}" class="subpage-hero-link">
+              {% if link.icon %}<i class="{{ link.icon }} hero-link-icon"></i>{% endif %}
+              <strong>{{ link.title }}</strong><br>
+              <span>{{ link.description }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <article class="subpage-content">
+      {{ content }}
+    </article>
+  </div>
+</section> 

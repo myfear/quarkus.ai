@@ -1,0 +1,22 @@
+// Custom overrides for minima theme to use modern Sass functions
+// This file replaces deprecated functions with their modern equivalents
+
+// Import the color module for modern color functions
+@use "sass:color";
+
+// Override deprecated lighten() and darken() functions with modern alternatives
+@function lighten($color, $amount) {
+  @return color.adjust($color, $lightness: $amount);
+}
+
+@function darken($color, $amount) {
+  @return color.adjust($color, $lightness: -$amount);
+}
+
+// Custom color variables using modern syntax
+$grey-color: #828282 !default;
+$grey-color-light: color.adjust($grey-color, $lightness: 40%) !default;
+$grey-color-dark: color.adjust($grey-color, $lightness: -25%) !default;
+
+$brand-color: #2a7ae4 !default;
+$text-color: #111 !default; 

@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<section class="section">
+  <div class="container">
+    <article class="card">
+      <header class="page-header">
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}
+          <p class="page-description">{{ page.description }}</p>
+        {% endif %}
+      </header>
+
+      <div class="page-content">
+        {{ content }}
+      </div>
+    </article>
+  </div>
+</section> 
