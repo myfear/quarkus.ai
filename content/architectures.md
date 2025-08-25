@@ -35,17 +35,22 @@ AI-infused applications combine traditional business logic with artificial intel
 ## Reference Architectures
 
 <div class="architectures-grid">
-{% for architecture in site.architectures %}
+{#for arch in site.collections.architectures}
 <div class="architecture-card">
-  <h3><a href="{{ architecture.url }}">{{ architecture.title }}</a></h3>
-  <p>{{ architecture.description }}</p>
+  <h3><a href="{arch.url}">{arch.title}</a></h3>
+  <p>{arch.description}</p>
   <div class="architecture-meta">
-    <span class="complexity">{{ architecture.complexity }}</span>
-    <span class="use-case">{{ architecture.use_case }}</span>
+    <span class="complexity">{arch.data.complexity}</span>
+    <span class="use-case">{arch.data.use_case}</span>
   </div>
 </div>
-{% endfor %}
+{/for}
 </div>
+
+
+
+
+
 
 ## Container-Native and Cloud-Native Readiness
 
