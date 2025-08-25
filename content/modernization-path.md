@@ -20,6 +20,18 @@ hero_links:
 
 # From Legacy to AI
 
+<div class="subpage-hero">
+  <div class="subpage-hero-links">
+    {#for element in page.data.hero_links}
+      <div class="subpage-hero-link">        
+          <i class="hero-link-icon {element.icon}"></i>
+        <h3>{element.title}</h3>
+        <p><a href="{element.url}">{element.description}</a></p>
+      </div>
+    {/for}
+  </div>
+</div>
+
 Help enterprise leaders map their journey from existing Java systems to AI-enhanced applications.
 
 ## From Monoliths to Modular AI-Ready Services

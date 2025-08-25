@@ -1,5 +1,6 @@
 // Import the main SCSS file
-import "./main.scss";
+// import "./main.scss";
+// import "./enterprise-design.scss";
 
 // Basic JavaScript functionality
 document.addEventListener('DOMContentLoaded', function() {
