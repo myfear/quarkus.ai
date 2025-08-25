@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>{#if page.title}{page.title} | Quarkus AI{#else}Quarkus AI{/if}</title>
+  <meta name="description" content="Build smarter applications with the performance, portability, and standards your business already trusts.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  {#bundle /}
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a class="site-title" href="/">
+          Quarkus AI
+        </a>
+        
+        <nav class="site-nav">
+          <ul>
+            <li><a href="/why-java-for-ai/">Why Java for AI?</a></li>
+            <li><a href="/architectures/">Architectures</a></li>
+            <li><a href="/modernization-path/">Modernization Path</a></li>
+            <li><a href="/get-started/">Get Started</a></li>
+            <li><a href="/success-stories/">Success Stories</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content" aria-label="Content">
+    {#insert /}
+  </main>
+
+  {#include partials/footer /}
+</body>
+
+</html> 
