@@ -2,7 +2,7 @@
 // This file replaces deprecated functions with their modern equivalents
 
 // Import the color module for modern color functions
-@use "sass:color";
+
 
 // Override deprecated lighten() and darken() functions with modern alternatives
 @function lighten($color, $amount) {

@@ -22,9 +22,10 @@ hero_links:
 
 Real-world enterprise AI integration using Quarkus.
 
-{% for story in site.success_stories %}
+{#for story in site.collections.success-stories}
 <div class='success-story-card'>
-  <h3><a href='{{ story.url }}'>{{ story.title }}</a></h3>
-  <p>{{ story.description }}</p>
+  <h3><a href='{story.url}'>{story.title}</a></h3>
+  <p>{story.description}</p>
 </div>
-{% endfor %}
+{/for}
+

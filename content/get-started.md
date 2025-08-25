@@ -22,6 +22,19 @@ hero_links:
 
 Direct developers and architects to resources, hands-on guides, and starter templates.
 
+<div class="subpage-hero">
+  <div class="subpage-hero-links">
+    {#for element in page.data.hero_links}
+      <div class="subpage-hero-link">        
+          <i class="hero-link-icon {element.icon}"></i>
+        <h3>{element.title}</h3>
+        <p><a href="{element.url}">{element.description}</a></p>
+      </div>
+    {/for}
+  </div>
+</div>
+
+
 ## Quickstart with LangChain4j and Quarkus
 
 ## Tutorial Hub
